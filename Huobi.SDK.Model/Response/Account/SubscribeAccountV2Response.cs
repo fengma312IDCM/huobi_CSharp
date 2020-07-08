@@ -23,11 +23,15 @@ namespace Huobi.SDK.Model.Response.Account
             /// The account id of this individual balance
             /// </summary>
             public int accountId;
-            
+
             /// <summary>
             /// The balance of this account, include frozen balance if "model" was set to 1 in subscription
             /// </summary>
             public string balance;
+            /// <summary>
+            /// 可用余额（仅当可用余额发生变动时推送）
+            /// </summary>
+            public string available;
 
             /// <summary>
             /// Change type
