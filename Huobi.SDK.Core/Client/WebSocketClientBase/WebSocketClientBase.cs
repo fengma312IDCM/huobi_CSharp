@@ -46,7 +46,7 @@ namespace Huobi.SDK.Core.Client.WebSocketClientBase
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             double elapsedSecond = (DateTime.UtcNow - _lastReceivedTime).TotalSeconds;
-            Console.WriteLine($"WebSocket received data {elapsedSecond} sec ago");
+            //Console.WriteLine($"WebSocket received data {elapsedSecond} sec ago");
 
             if (elapsedSecond > RECONNECT_WAIT_SECOND && elapsedSecond <= RENEW_WAIT_SECOND)
             {
@@ -131,10 +131,10 @@ namespace Huobi.SDK.Core.Client.WebSocketClientBase
                 var pingMessage = JsonConvert.DeserializeObject<PingMessage>(data);
                 if (pingMessage != null && pingMessage.ping != 0)
                 {
-                    Console.WriteLine($"received ping:{pingMessage.ping}");
+                    //Console.WriteLine($"received ping:{pingMessage.ping}");
                     string pongData = $"{{\"pong\":{pingMessage.ping}}}";
                     _WebSocket.Send(pongData);
-                    Console.WriteLine($"replied pong:{pingMessage.ping}");
+                    //Console.WriteLine($"replied pong:{pingMessage.ping}");
                 }
                 else
                 {
